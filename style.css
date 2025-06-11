@@ -1,0 +1,478 @@
+@import url('https://fonts.cdnfonts.com/css/agatho');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d; /* Subtle black background */
+  color: #f0f0f0; /* Light text for contrast */
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  color: white;
+  padding: 20px 40px;
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Nav links centered */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0 auto;
+  padding: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: palevioletred;
+  transition: width 0.5s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: palevioletred;
+}
+
+
+/* Welcome Section */
+.welcome-section {
+  text-align: center;
+  padding: 80px 20px 40px;
+  font-size: 32px;
+  color: #fff;
+}
+
+#typed-text {
+  color: palevioletred;
+  font-weight: bold;
+}
+
+#cursor {
+  display: inline-block;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Section Headings */
+h2 {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: white;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  background: #333;
+  color: white;
+  transition: background 0.3s;
+  border-radius: 4px;
+}
+
+.filter-buttons button:hover {
+  background: #555;
+}
+
+/* Gallery with exactly 4 cards per row */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Show exactly 4 columns */
+  gap: 20px;
+  padding: 0 30px 40px;
+}
+
+/* Ensure each card is 600px height */
+.gallery-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.85);
+  backdrop-filter: blur(10px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 30px;
+  z-index: 1001;
+}
+
+.prev, .next {
+  font-size: 60px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.prev:hover, .next:hover {
+  color: #ccc;
+}
+
+/* About Section */
+#about {
+  padding: 60px 30px;
+  background: #1a1a1a;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+#contact {
+  padding: 60px 30px;
+  background: #141414;
+  color: white;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #222;
+  color: white;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: palevioletred;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .gallery-img {
+    height: 300px;
+  }
+
+  .welcome-section {
+    font-size: 24px;
+  }
+}
+
+input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  border-radius: 10px;
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Prevent yellow autofill in Chrome */
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+}
+
+/* Force dark style on autofilled input */
+input:-webkit-autofill {
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.05) inset !important;
+}
+
+
+/* Custom Scrollbar - Webkit Browsers */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05); /* Transparent glass-like track */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: palevioletred;
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(162, 77, 106);
+}
+
+
+
+/* --------------------------------------
+  Media Queries for Responsiveness
+-----------------------------------------*/
+
+/* For mobile phones (up to 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two per row */
+    gap: 10px 20px;
+    justify-items: center;
+    padding: 0;
+  }
+
+  .nav-links li {
+    text-align: center;
+    width: 100%;
+  }
+
+  .welcome-section {
+    font-size: 20px;
+    padding: 60px 15px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px 30px;
+  }
+
+  .gallery-img {
+    height: 250px;
+  }
+
+  #about,
+  #contact {
+    padding: 40px 15px;
+    font-size: 16px;
+  }
+
+  .contact-form {
+    padding: 0 5px;
+  }
+}
+
+
+/* For small tablets (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px 20px;
+    justify-items: center;
+    padding: 0;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-img {
+    height: 300px;
+  }
+
+  .welcome-section {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .contact-form {
+    padding: 0 10px;
+  }
+
+}
+
+/* For tablets and small laptops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1600px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery-img {
+    height: 500px;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .nav-links {
+    gap: 30px;
+  }
+
+  .welcome-section {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+}
+
+/* For large screens (1600px and above) */
+@media (min-width: 1601px) {
+  .gallery-img {
+    height: 700px;
+  }
+
+  .welcome-section {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 3000px)
+{
+  .gallery {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .gallery-img {
+    /* width: 600px; */
+    height: 1300px;
+  }
+}

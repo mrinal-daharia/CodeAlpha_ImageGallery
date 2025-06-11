@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Image Gallery</title>
+  <link rel="icon" href="images/favicon_io/favicon.ico" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Optic Flow</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#our-work">Our Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="welcome-section">
+    <h1>Welcome to <span id="typed-text"></span><span id="cursor">|</span></h1>
+  </section>
+
+  <!-- Our Work Section -->
+  <section id="our-work">
+    <h2>Image Gallery</h2>
+
+    <!-- Filters -->
+    <div class="filter-buttons">
+      <button onclick="filterImages('all')">All</button>
+      <button onclick="filterImages('peoples')">Peoples</button>
+      <button onclick="filterImages('portrait')">Portrait</button>
+      <button onclick="filterImages('landscapes')">Landscapes</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery">
+      <img src="images/portrait/img11.jpg" alt="portrait" class="gallery-img portrait peoples" onclick="openLightbox(0)">
+      <img src="images/people/img8.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(1)">
+      <img src="images/portrait/portrait8.jpg" alt="portrait" class="gallery-img portrait" onclick="openLightbox(2)">
+      <img src="images/portrait/portrait9.jpg" alt="portrait" class="gallery-img portrait" onclick="openLightbox(3)">
+      <img src="images/people/img1.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(4)">
+      <img src="images/portrait/img3.jpg" alt="portrait" class="gallery-img portrait peoples" onclick="openLightbox(5)">
+      <img src="images/landscape/landscape1.jpg" alt="landscape" class="gallery-img landscapes" onclick="openLightbox(6)">
+      <img src="images/portrait/img4.jpg" alt="portrait" class="gallery-img portrait peoples" onclick="openLightbox(7)">
+      <img src="images/portrait/img5.jpg" alt="Portrait " class="gallery-img portrait peoples" onclick="openLightbox(8)">
+      <img src="images/landscape/landscape3.jpg" alt="landscape" class="gallery-img landscapes" onclick="openLightbox(9)">
+      <img src="images/people/img6.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(10)">
+      <img src="images/portrait/img9.jpg" alt="portrait" class="gallery-img portrait peoples" onclick="openLightbox(11)">
+      <img src="images/portrait/img2.jpg" alt="Portrait" class="gallery-img portrait peoples" onclick="openLightbox(12)">
+      <img src="images/people/img7.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(13)">
+      <img src="images/landscape/landscape2.jpg" alt="landscape" class="gallery-img landscapes" onclick="openLightbox(14)">
+      <img src="images/people/img10.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(15)">
+      <img src="images/people/img12.jpg" alt="person" class="gallery-img portrait peoples" onclick="openLightbox(16)">
+      <img src="images/landscape/landscape4.jpg" alt="landscape" class="gallery-img landscapes" onclick="openLightbox(17)">
+      <img src="images/portrait/portrait7.jpg" alt="portrait" class="gallery-img portrait peoples" onclick="openLightbox(18)">
+      <img src="images/portrait/portrait10.jpg" alt="portrait" class="gallery-img portrait" onclick="openLightbox(19)">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      At <strong>Optic Flow</strong>, we are passionate about capturing moments that matter. Whether it's street life,
+      breathtaking landscapes, or expressive portraits, we turn images into stories. With a dedicated team and a love
+      for visuals, we aim to provide the best experience through our gallery. This platform showcases creativity,
+      diversity, and the beauty of everyday life through the lens.
+    </p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form" action="feedback.php" method="POST">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="message">Your Feedback:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your feedback here..." required></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-img" class="lightbox-img" />
+    <div class="nav">
+      <span class="prev" onclick="changeImage(-1)">❮</span>
+      <span class="next" onclick="changeImage(1)">❯</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="texteffect.js"></script>
+</body>
+
+</html>
